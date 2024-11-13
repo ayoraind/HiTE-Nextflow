@@ -5,7 +5,7 @@ Here is a tutorial on running the [HiTE](https://github.com/CSU-KangHu/HiTE) usi
 # install nextflow
 1. conda create -n nextflow -c conda-forge -c bioconda nextflow==22.10.6
 
-# download HiTE
+# download HiTE-Nextflow
 2. git clone https://github.com/CSU-KangHu/HiTE-Nextflow.git
 
 # activate nextflow
@@ -17,7 +17,6 @@ Here is a tutorial on running the [HiTE](https://github.com/CSU-KangHu/HiTE) usi
 # singularity image (docker://kanghu/hite:3.2.0) to the --singularity_cache directory (default: local_singularity_cache) first.
 # There will be a .img file in the --singularity_cache directory.
 
-# The options "--genome" and "--outdir" need to be specified as absolute paths.
 nextflow run main.nf -profile singularity \
 --genome ${genome} \
 --outdir ${output_dir}
@@ -33,7 +32,6 @@ nextflow run main.nf -profile singularity \
 # pull singularity image (once for all) before running the cmd.
 singularity pull HiTE.sif docker://kanghu/hite:3.2.0
 # run HiTE
-# The options "--genome" and "--outdir" need to be specified as absolute paths.
 nextflow run main.nf -profile singularity \
 --singularity_name HiTE.sif \
 --genome ${genome} \
@@ -49,7 +47,6 @@ nextflow run main.nf -profile singularity \
 # pull docker image (once for all).
 docker pull kanghu/hite:3.2.0
 
-# The options "--genome" and "--outdir" need to be specified as absolute paths.
 nextflow run main.nf -profile docker \
 --genome ${genome} \
 --outdir ${output_dir}
